@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+
+// /* mediaquery */
+@mixin add-max-query($point) {
+  @media screen and (max-width: $point) { @content; }
+}
+@mixin add-min-query($point) {
+  @media screen and (min-width: $point) { @content; }
+}
+
+
+// /* max-width-centering-contents */
+@mixin really-max-width-centering-contents {
+  max-width: $contents-really-max-width;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+
+// /* max-width-centering-contents */
+@mixin max-width-centering-contents {
+  max-width: $contents-max-width;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+
+// anchor-link-fixed
+@mixin anchor-link-fixed {
+  margin-top: - $header-height;
+  padding-top: $header-height;
+  @include add-max-query($breakpoint-mobile) {
+    margin-top: - $header-mobile-height;
+    padding-top: $header-mobile-height;
+  }
+}
+
+
+// /* keyframes */
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}

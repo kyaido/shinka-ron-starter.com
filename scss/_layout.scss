@@ -1,0 +1,340 @@
+@charset "UTF-8";
+
+/* -------------------------------------
+ *
+ * layout
+ *
+------------------------------------- */
+
+/* -------------------------------------
+ * page
+------------------------------------- */
+body {
+  min-width: 320px;
+}
+#wrapper {
+  width: 100%;
+}
+
+
+
+/* -------------------------------------
+ * header
+------------------------------------- */
+#header {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  clear: both;
+  width: 100%;
+  height: $header-height;
+  padding: 10px 0;
+  background-color: #e5e1da;
+  border-bottom: #cfc9c0 1px solid;
+  box-sizing: border-box;
+  text-align: center;
+  @include add-max-query($breakpoint-mobile) {
+    text-align: left;
+    height: $header-mobile-height;
+  }
+}
+#head-inner {
+  @include really-max-width-centering-contents;
+}
+
+/* logo */
+#logo {
+  position: relative;
+  display: inline-block;
+  width: 95px;
+  @include add-max-query($breakpoint-mobile) {
+    width: 60px;
+  }
+}
+#logo a {
+  display: block;
+  opacity: 1;
+  text-align: center;
+}
+
+
+
+/* -------------------------------------
+ * nav
+------------------------------------- */
+#nav {
+  clear: both;
+  margin: -75px 0 0;
+  @include add-max-query($breakpoint-mobile) {
+    margin: 0;
+    background-color: rgba(0, 0, 0, .7);
+  }
+}
+#nav .nav__items {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  @include add-max-query($breakpoint-mobile) {
+    display: block;
+  }
+}
+#nav .nav__item {
+  display: table-cell;
+  width: 14%;
+  font-family: $webfont;
+  font-size: 30px;
+  text-align: center;
+  @include add-max-query($breakpoint-mobile) {
+    display: block;
+    width: 100%;
+    border-top: rgba(255, 255, 255, .5) 1px solid;
+    font-size: 22px;
+  }
+}
+#nav .nav__item_is_products,
+#nav .nav__item_is_about {
+  width: 22%;
+  @include add-max-query($breakpoint-mobile) {
+    width: 100%;
+  }
+}
+#nav .nav__item_state_empty {
+  @include add-max-query($breakpoint-mobile) {
+    display: none;
+  }
+}
+#nav .nav__item a {
+  display: inline-block;
+  padding: 10px;
+  color: #8a8a8a;
+  text-decoration: none;
+  @include add-max-query($breakpoint-mobile) {
+    display: block;
+    color: #fff;
+  }
+}
+#nav .nav__item_is_facebook img {
+  width: 40px;
+  @include add-max-query($breakpoint-mobile) {
+    width: 30px;
+  }
+}
+
+#nav-switch {
+  display: none;
+  @include add-max-query($breakpoint-mobile) {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    width: 36px;
+    height: 28px;
+    background-color: #333;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+}
+#nav-switch:before,
+#nav-switch:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background-color: #e5e1da;
+}
+#nav-switch:before {
+  top: 4px;
+}
+#nav-switch:after {
+  bottom: 4px;
+}
+
+/* nav toggle */
+#nav {
+  @include add-max-query($breakpoint-mobile) {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .2s;
+  }
+}
+.js-nav-show #nav {
+  @include add-max-query($breakpoint-mobile) {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+
+/* -------------------------------------
+ * main
+------------------------------------- */
+/* content */
+#content {
+  clear: both;
+  width: 100%;
+  padding: 105px 0 0;
+  padding-top: $header-height;
+  @include add-max-query($breakpoint-mobile) {
+    padding-top: $header-mobile-height;
+  }
+}
+
+/* main */
+#main {
+  width: 100%;
+}
+
+/* hero */
+.hero {
+  width: 100%;
+  padding: 7% 0;
+  background: url(../img/img_01.png) no-repeat 50% 50%;
+  background-size: cover;
+  box-sizing: border-box;
+}
+.hero .sitename {
+  margin: 0;
+}
+.hero .sitename img {
+  width: 500px;
+  margin: 0 10px 0 0;
+  @include add-max-query($breakpoint-tablet) {
+    width: 400px;
+  }
+  @include add-max-query($breakpoint-mobile) {
+    width: 280px;
+  }
+}
+
+/* top-information */
+.top-information {
+  width: 90%;
+  max-width: 1480px;
+  margin: 15px auto 20px;
+  padding: 10px 35px;
+  background-color: #fff;
+  border: #f4b29d 3px solid;
+  border-radius: 10px;
+  box-sizing: border-box;
+  @include add-max-query($breakpoint-tablet) {
+    padding: 10px 15px;
+  }
+  @include add-max-query($breakpoint-mobile) {
+    margin: 10px auto 15px;
+    padding: 5px 10px;
+  }
+}
+.top-information-heading {
+  float: left;
+  margin: 0 25px 0 0;
+  color: #f4b29d;
+  font-size: 24px;
+  font-weight: bold;
+  @include add-max-query($breakpoint-tablet) {
+    float: none;
+  }
+  @include add-max-query($breakpoint-mobile) {
+    font-size: 20px;
+  }
+}
+.top-information-list {
+  overflow: hidden;
+  color: #8a8a8a;
+  padding: 7px 0 0;
+  @include add-max-query($breakpoint-tablet) {
+    padding-top: 0;
+  }
+  @include add-max-query($breakpoint-mobile) {
+    font-size: 14px;
+  }
+}
+.top-information-list dt {
+  float: left;
+  width: 6.5em;
+  padding: 2px 0 0;
+  @include add-max-query($breakpoint-mobile) {
+    float: none;
+    padding: 10px 0 0;
+  }
+}
+.top-information-list dd {
+  overflow: hidden;
+  padding: 2px 0 0;
+  @include add-max-query($breakpoint-mobile) {
+    padding: 0;
+  }
+}
+.top-information-list dd a {
+  color: #8a8a8a;
+}
+
+/* pagetop */
+#pagetop {
+  position: fixed;
+  display: inline-block;
+  bottom: 10px;
+  right: 10px;
+  @include add-max-query($breakpoint-mobile) {
+    display: none;
+  }
+}
+#pagetop a {
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-color: #c5c4c1;
+  background-color: rgba(182, 182, 182, .8);
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  line-height: 50px;
+}
+#pagetop a:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: 5px 0 0;
+  border: transparent 2px solid;
+  border-top-color: #fff;
+  border-right-color: #fff;
+  transform: rotate(-45deg) translate(-50%, -50%);
+  transform-origin: 0 0 0;
+}
+.no-csstransforms #pagetop {
+  display: none;
+}
+
+
+/* -------------------------------------
+ * footer
+------------------------------------- */
+#footer {
+  clear: both;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #e5e1da;
+  border-top: #cfc9c0 1px solid;
+  box-sizing: border-box;
+}
+#foot-inner {
+  @include max-width-centering-contents;
+}
+
+/* copyright */
+#copyright {
+  display: block;
+  color: #a4a3a3;
+  text-align: center;
+  @include add-max-query($breakpoint-mobile) {
+    font-size: 12px;
+  }
+}
